@@ -52,7 +52,7 @@ mongosh --port 27017
 use versao1
 ```
 
-### Criar coleção fichas de forma embedded
+### Criar coleção fichas
 ```bash
 db.createCollection("fichas")
 ```
@@ -105,14 +105,14 @@ db.fichas.insert({
 ```bash
 db.fichas.find(
   { "exercicios.nome_exercicio": "Supino" },
-);
+)
 ```
 
 ### Consulta 2 (1:N)
 ```bash
 db.fichas.find(
   { "instrutor.nome_instrutor": "Daniel" },
-);
+)
 ```
 
 ## Versão 2: Referenced Relationships
