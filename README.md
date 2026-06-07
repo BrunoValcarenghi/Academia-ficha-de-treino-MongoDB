@@ -116,3 +116,89 @@ db.fichas.find(
 ```
 
 ## Versão 2: Referenced Relationships
+
+### Criar versão 2
+```bash
+use versao2
+```
+
+### Criar coleções
+```bash
+db.createCollection("instrutores")
+db.createCollection("fichas")
+db.createCollection("exercicios")
+db.createCollection("exercicios_fichas")
+```
+
+### Adicionando dados
+```bash
+db.instrutores.insert({
+	"id_instrutor": 1,
+	"nome_instrutor": "Daniel",
+	"cref": "CREF 00000"
+})
+
+db.fichas.insert({
+	"id_ficha": 1,
+	"nome_ficha": "Treino1",
+	"data_criacao": "06/06/26",
+	"id_instrutor": 1
+})
+
+db.fichas.insert({
+	"id_ficha": 2,
+	"nome_ficha": "Treino2",
+	"data_criacao": "06/06/26",
+	"id_instrutor": 1
+})
+
+db.exercicios.insert({
+	"id_exercicio": 1,
+	"nome_exercicio": "Supino",
+	"grupo_muscular": "peito"
+})
+
+db.exercicios.insert({
+	"id_exercicio": 2,
+	"nome_exercicio": "Puxada",
+	"grupo_muscular": "costa"
+})
+
+db.exercicios.insert({
+	"id_exercicio": 3,
+	"nome_exercicio": "LegPress",
+	"grupo_muscular": "pernas"
+})
+
+db.exercicios_fichas.insert({
+	"id_exercicios_fichas": 1,
+	"id_ficha": 1,
+	"id_exercicio": 1
+})
+
+db.exercicios_fichas.insert({
+	"id_exercicios_fichas": 2,
+	"id_ficha": 1,
+	"id_exercicio": 2
+})
+
+db.exercicios_fichas.insert({
+	"id_exercicios_fichas": 3,
+	"id_ficha": 2,
+	"id_exercicio": 3
+})
+```
+
+### Consulta 1 (N:N)
+```bash
+db.fichas.find(
+  { "id_instrutor": 1 }
+)
+```
+
+### Consulta 2 (1:N)
+```bash
+db.exercicios_fichas.find(
+  { "id_exercicio": 1 }
+)
+```
