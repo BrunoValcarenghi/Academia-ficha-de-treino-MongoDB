@@ -8,23 +8,31 @@
 
 ```mermaid
 erDiagram
-    INSTRUTOR ||--o{ FICHA_TREINO : "monta (1:N)"
-    FICHA_TREINO }o--o{ EXERCICIO : "contem_exercicios (N:N)"
+    INSTRUTOR ||--o{ FICHA : "monta (1:N)"
+    FICHA ||--o{ FICHA_EXERCICIO : "contem_exercicios (1:N)"
+	FICHA_EXERCICIO }o--|| EXERCICIO : "contem_exercicios (1:N)"
 
     INSTRUTOR {
-        string id_instrutor PK
+        int id_instrutor PK
         string nome_instrutor
         string cref
     }
 
-    FICHA_TREINO {
-        string id_ficha PK
+    FICHA {
+        int id_ficha PK
         string nome_ficha
         date data_criacao
+		int id_instrutor FK
+    }
+
+	FICHA_EXERCICIO {
+        int id_ficha_exercicio PK
+		int id_ficha FK
+		int id_exercicio FK
     }
 
     EXERCICIO {
-        string id_exercicio PK
+        int id_exercicio PK
         string nome_exercicio
         string grupo_muscular
     }
