@@ -201,7 +201,7 @@ db.exercicios_fichas.insert({
 })
 ```
 
-### Consulta 1 (N:N)
+### Consulta 1 (1:N)
 ```bash
 db.fichas.aggregate([
   {
@@ -218,7 +218,7 @@ db.fichas.aggregate([
 ])
 ```
 
-### Consulta 2 (1:N)
+### Consulta 2 (N:N)
 ```bash
 db.exercicios_fichas.aggregate([
   {
