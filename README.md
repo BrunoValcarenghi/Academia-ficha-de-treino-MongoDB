@@ -1,8 +1,10 @@
 # Sistema Ficha Treino - MongoDB
 
-## Modelo ER
+## Modelo Conceitual
 
 ![Modelo Conceitual](modeloConceitual)
+
+## Modelo Lógico
 
 ```mermaid
 erDiagram
