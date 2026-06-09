@@ -203,14 +203,34 @@ db.exercicios_fichas.insert({
 
 ### Consulta 1 (N:N)
 ```bash
-db.fichas.find(
-  { "id_instrutor": 1 }
-)
+db.fichas.aggregate([
+  {
+    $lookup: {
+      from: "instrutores",      
+      localField: "id_instrutor", 
+      foreignField: "id_instrutor", 
+      as: "dados_instrutor"      
+    }
+  },
+  { 
+    $match: { "dados_instrutor.nome_instrutor": "Daniel" } 
+  }
+])
 ```
 
 ### Consulta 2 (1:N)
 ```bash
-db.exercicios_fichas.find(
-  { "id_exercicio": 1 }
-)
+db.exercicios_fichas.aggregate([
+  {
+    $lookup: {
+      from: "exercicios",        
+      localField: "id_exercicio", 
+      foreignField: "id_exercicio",
+      as: "detalhes_exercicio"     
+    }
+  },
+  { 
+    $match: { "detalhes_exercicio.grupo_muscular": "peito" } 
+  }
+])
 ```
