@@ -2,7 +2,7 @@
 
 ## Modelo Conceitual
 
-![Modelo Conceitual](modeloConceitual)
+![Modelo Conceitual](modeloConceitual.png)
 
 ## Modelo Lógico
 
