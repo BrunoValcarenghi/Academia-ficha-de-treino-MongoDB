@@ -2,6 +2,8 @@
 
 ## Modelo ER
 
+![Modelo Conceitual](modeloConceitual)
+
 ```mermaid
 erDiagram
     INSTRUTOR ||--o{ FICHA_TREINO : "monta (1:N)"
